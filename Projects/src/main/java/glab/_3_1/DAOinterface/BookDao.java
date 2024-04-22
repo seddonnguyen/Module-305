@@ -1,6 +1,6 @@
-package GLAB._3_1.DAOinterface;
+package glab._3_1.DAOinterface;
 
-import GLAB._3_1.model.Books;
+import glab._3_1.model.Books;
 
 import java.sql.SQLException;
 import java.util.List;

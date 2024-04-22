@@ -1,8 +1,8 @@
-package GLAB._3_1.Controller;
+package glab._3_1.Controller;
 
-import GLAB._3_1.DAOinterface.BookDao;
-import GLAB._3_1.DAOinterface.ConnectionDAO;
-import GLAB._3_1.model.Books;
+import glab._3_1.DAOinterface.BookDao;
+import glab._3_1.DAOinterface.ConnectionDAO;
+import glab._3_1.model.Books;
 
 import java.sql.*;
 import java.util.ArrayList;

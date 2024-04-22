@@ -1,4 +1,4 @@
-package GLAB._3_1.model;
+package glab._3_1.model;
 
 public class Books {
     private int id;
