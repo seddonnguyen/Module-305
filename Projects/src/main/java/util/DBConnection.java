@@ -26,10 +26,10 @@ public class DBConnection {
         }
     }
 
-    public static Connection connect() throws SQLException {
+    public static Connection connect(String database) throws SQLException {
         try {
             Class.forName(driver);
-            return DriverManager.getConnection(url, username, password);
+            return DriverManager.getConnection(url + database, username, password);
         } catch (SQLException | ClassNotFoundException e) {
             System.err.println(e.getMessage());
             return null;

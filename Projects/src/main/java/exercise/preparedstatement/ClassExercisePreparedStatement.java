@@ -17,7 +17,7 @@ Create SQL PreparedStatements that would perform the following functionalities (
 */
 
     public static void main(String[] args) {
-        try (Connection connection = DBConnection.connect()) {
+        try (Connection connection = DBConnection.connect("classicmodels")) {
             try (PreparedStatement preparedStatement = connection.prepareStatement(SqlQuries.SELECT_EMPLOYEES_BY_OFFICECODE)) {
                 System.out.println("Select all employees whose officecode is 1 and 4.");
 
