@@ -1,4 +1,4 @@
-package exercise.daopattern;
+package exercise.daopattern.DAOinterface;
 
 import exercise.daopattern.model.Books;
 
