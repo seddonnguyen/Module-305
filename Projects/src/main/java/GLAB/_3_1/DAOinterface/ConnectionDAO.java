@@ -1,4 +1,4 @@
-package DAOinterface;
+package GLAB._3_1.DAOinterface;
 
 import java.sql.*;
 

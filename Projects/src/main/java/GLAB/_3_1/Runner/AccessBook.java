@@ -1,8 +1,8 @@
-package Runner;
+package GLAB._3_1.Runner;
 
-import Controller.BookDaoImpl;
-import DAOinterface.BookDao;
-import model.Books;
+import GLAB._3_1.Controller.BookDaoImpl;
+import GLAB._3_1.DAOinterface.BookDao;
+import GLAB._3_1.model.Books;
 
 import java.sql.SQLException;
 

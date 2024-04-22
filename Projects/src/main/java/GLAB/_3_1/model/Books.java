@@ -1,4 +1,4 @@
-package model;
+package GLAB._3_1.model;
 
 public class Books {
     private int id;
@@ -19,7 +19,7 @@ public class Books {
         this.bookName = bookName;
         this.id = id;
     }
-    
+
     // getter setter methods
     public int getId() {
         return id;
