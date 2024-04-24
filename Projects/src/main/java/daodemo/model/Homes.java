@@ -8,7 +8,9 @@ public class Homes {
     private int levels;
     private Integer addressId;     // foreign key
 
-    public Homes() { }
+    public Homes(int addressId) {
+        this.addressId = addressId;
+    }
 
     public int getWindows() {
         return windows;

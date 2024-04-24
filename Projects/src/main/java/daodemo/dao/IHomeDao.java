@@ -12,7 +12,7 @@ public interface IHomeDao {
 
     Homes getHome(int id);
 
-    void addHome(Homes home);
+    int addHome(Homes home);
 
     void removeHome(int id);
 }

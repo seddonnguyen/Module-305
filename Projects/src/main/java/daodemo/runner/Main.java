@@ -18,10 +18,10 @@ public class Main {
             Addresses addr = new Addresses();
             addr.setState("CO");
             addr.setCountry("USA");
-            addrDAO.addAddress(addr);
-            System.out.printf("Address id: %d\n\n", addr.getId());
+            int addrId = addrDAO.addAddress(addr);
+            System.out.printf("Address id: %d\n\n", addrId);
 
-            Homes home = new Homes();
+            Homes home = new Homes(addrId);
             home.setLevels(1);
             home.setWindows(1);
             home.setDoors(1);

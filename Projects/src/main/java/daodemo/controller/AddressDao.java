@@ -97,7 +97,7 @@ public class AddressDao implements IAddressDao {
     }
 
     @Override
-    public void addAddress(Addresses address) {
+    public int addAddress(Addresses address) {
         String query = "INSERT INTO addresses (state, country) VALUES (?, ?)";
 
         try (PreparedStatement stmt = this.connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
@@ -108,9 +108,11 @@ public class AddressDao implements IAddressDao {
             try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     address.setId(generatedKeys.getInt(1));
+                    return address.getId();
                 }
             } catch (SQLException e) { e.printStackTrace(); }
         } catch (SQLException e) { e.printStackTrace(); }
+        return -1;
     }
 
     @Override

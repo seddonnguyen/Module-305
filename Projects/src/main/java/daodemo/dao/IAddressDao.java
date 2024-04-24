@@ -12,7 +12,7 @@ public interface IAddressDao {
 
     Addresses getAddress(int id);
 
-    void addAddress(Addresses addr);
+    int addAddress(Addresses addr);
 
     void removeAddress(int id);
 }

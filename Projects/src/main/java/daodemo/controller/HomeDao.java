@@ -15,7 +15,7 @@ public class HomeDao implements IHomeDao {
 
     public HomeDao(Connection connection) {
         this.connection = connection;
-        
+
         try {
             String tableQuery = """
                                 CREATE TABLE IF NOT EXISTS homes
@@ -48,7 +48,7 @@ public class HomeDao implements IHomeDao {
                 int levels = rs.getInt("levels");
                 int addressId = rs.getInt("addressId");
 
-                Homes home = new Homes();
+                Homes home = new Homes(addressId);
                 home.setId(id);
                 home.setWindows(windows);
                 home.setBathrooms(bathrooms);
@@ -78,7 +78,7 @@ public class HomeDao implements IHomeDao {
                 int levels = rs.getInt("levels");
                 int addressId = rs.getInt("addressId");
 
-                Homes home = new Homes();
+                Homes home = new Homes(addressId);
                 home.setId(id);
                 home.setWindows(windows);
                 home.setBathrooms(bathrooms);
@@ -106,7 +106,7 @@ public class HomeDao implements IHomeDao {
                 int levels = rs.getInt("levels");
                 int addressId = rs.getInt("addressId");
 
-                Homes home = new Homes();
+                Homes home = new Homes(addressId);
                 home.setId(id);
                 home.setWindows(windows);
                 home.setBathrooms(bathrooms);
@@ -120,7 +120,7 @@ public class HomeDao implements IHomeDao {
     }
 
     @Override
-    public void addHome(Homes home) {
+    public int addHome(Homes home) {
         String query = "INSERT INTO homes (windows, bathrooms, doors, levels, addressId) VALUES(?,?,?,?,?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
@@ -134,9 +134,11 @@ public class HomeDao implements IHomeDao {
             try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     home.setId(generatedKeys.getInt(1));
+                    return home.getId();
                 }
             } catch (SQLException e) { e.printStackTrace(); }
         } catch (SQLException e) { e.printStackTrace(); }
+        return -1;
     }
 
     @Override
