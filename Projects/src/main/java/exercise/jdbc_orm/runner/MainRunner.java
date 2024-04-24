@@ -4,14 +4,15 @@ import exercise.jdbc_orm.DAOinterface.EmployeeDaoImpl;
 import exercise.jdbc_orm.model.EmployeePerformanceReview;
 import util.DBConnection;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 
 public class MainRunner {
-    public static void main(String[] args) {
-        try {
-            var dao = new EmployeeDaoImpl(DBConnection.connect("performance_review"));
+    public static void main(String[] args) throws SQLException {
+        try (Connection connection = DBConnection.connect("performance_review")) {
+            var dao = new EmployeeDaoImpl(connection);
             Set<String> reviewTexts = Set.of("Good", "Bad", "Excellent", "Poor", "Average");
             List<EmployeePerformanceReview> reviews = null;
 
