@@ -1,6 +1,5 @@
 package classicmodels.model;
 
-import glab._4_1B.model.Department;
 import jakarta.persistence.*;
 
 import java.util.LinkedHashSet;

@@ -3,7 +3,7 @@ package glab._4_1B.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "USER", schema = "usersDb")
 public class User {
     @Column(name = "USER_ID")
     @Id
