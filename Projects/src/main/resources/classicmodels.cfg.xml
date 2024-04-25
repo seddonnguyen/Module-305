@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Drop and re-create the database on startup -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/classicmodels?createDatabaseIfNotExist=true</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+
+        <!-- MySQL DB dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- print all executed SQL on console -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!--   Mapping entity file -->
+        <mapping class="classicmodels.model.Course"/>
+        <mapping class="classicmodels.model.Customer"/>
+        <mapping class="classicmodels.model.Employee"/>
+        <mapping class="classicmodels.model.Faculty"/>
+        <mapping class="classicmodels.model.Facultycourse"/>
+        <mapping class="classicmodels.model.FacultycourseId"/>
+        <mapping class="classicmodels.model.Office"/>
+        <mapping class="classicmodels.model.Order"/>
+        <mapping class="classicmodels.model.Orderdetail"/>
+        <mapping class="classicmodels.model.OrderdetailId"/>
+        <mapping class="classicmodels.model.Payment"/>
+        <mapping class="classicmodels.model.Product"/>
+        <mapping class="classicmodels.model.Productline"/>
+        <mapping class="classicmodels.model.Student"/>
+        <mapping class="classicmodels.model.Studentcourse"/>
+    </session-factory>
+</hibernate-configuration>
