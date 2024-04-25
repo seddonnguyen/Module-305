@@ -138,7 +138,7 @@ public class DepartmentController {
 
             transaction = session.beginTransaction();
             department.setName(name);
-            session.update(department);
+            department = session.merge(department);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) { transaction.rollback(); }
@@ -158,7 +158,7 @@ public class DepartmentController {
 
             transaction = session.beginTransaction();
             department.setState(state);
-            session.update(department);
+            department = session.merge(department);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) { transaction.rollback(); }
@@ -176,7 +176,7 @@ public class DepartmentController {
             if (department == null) { return false; }
 
             transaction = session.beginTransaction();
-            session.delete(department);
+            session.remove(department);
             transaction.commit();
 
             successful = true;

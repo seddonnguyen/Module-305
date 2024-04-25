@@ -71,7 +71,8 @@ public class UserController {
             if (user != null) {
                 user.setFullName("Updated Name");
                 user.setEmail("updated.email@example.com");
-                session.update(user);
+                session.merge(user);
+                session.evict(user);
                 transaction.commit();
                 System.out.println("User updated successfully");
             } else {
@@ -88,7 +89,7 @@ public class UserController {
         try {
             User user = session.get(User.class, userId);
             if (user != null) {
-                session.delete(user);
+                session.remove(user);
                 transaction.commit();
                 System.out.println("User deleted successfully.");
             } else {
