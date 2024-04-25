@@ -4,12 +4,15 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "DEPARTMENT", schema = "usersDb")
+@NamedQueries({@NamedQuery(name = "getDepartmentAll", query = "FROM Department"), @NamedQuery(name = "getDepartmentByState", query = """
+                                                                                                                                     FROM Department
+                                                                                                                                     where state = :state""")})
 public class Department {
     @Column(name = "DEPARTMENT_ID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int id;
+
     private String name;
     private String state;
 

@@ -30,6 +30,20 @@ public class Employee {
     private Date startDate;
     private int officeCode;
 
+    public Employee(int id, String name, int salary, String job, String addressLine, String zipcode, String city, Date startDate, int officeCode) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+        this.job = job;
+        this.addressLine = addressLine;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.startDate = startDate;
+        this.officeCode = officeCode;
+    }
+
+    public Employee() { }
+
     public int getId() {
         return id;
     }

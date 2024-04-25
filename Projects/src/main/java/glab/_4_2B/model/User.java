@@ -5,8 +5,12 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "USER", schema = "usersDb")
 @NamedQueries({@NamedQuery(name = "User.findAll", query = "FROM User"),
-               @NamedQuery(name = "User.findById", query = "FROM User u WHERE u.id = :id"),
-               @NamedQuery(name = "User.deleteByName", query = "DELETE FROM User u WHERE u.fullName = :fullName")})
+               @NamedQuery(name = "User.findById", query = """
+                                                           FROM User u
+                                                           WHERE u.id = :id"""),
+               @NamedQuery(name = "User.deleteByName", query = """
+                                                               DELETE FROM User u
+                                                               WHERE u.fullName = :fullName""")})
 public class User {
     @Column(name = "USER_ID")
     @Id
