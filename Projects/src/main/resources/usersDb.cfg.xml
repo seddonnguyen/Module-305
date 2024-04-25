@@ -14,7 +14,7 @@
         <property name="connection.password"></property>
 
         <!-- MySQL DB dialect -->
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <!-- print all executed SQL on console -->
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>

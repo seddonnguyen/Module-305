@@ -1,9 +1,9 @@
 package glab._4_1B.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "DEPARTMENT", schema = "usersDb")
+@Table(name = "DEPARTMENT")
 public class Department {
     @Column(name = "DEPARTMENT_ID")
     @Id
