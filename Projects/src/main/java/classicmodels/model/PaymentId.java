@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Embeddable
 public class PaymentId implements Serializable {
-    private static final long serialVersionUID = -52246858838148279L;
+    private static final long serialVersionUID = 2349203382643874653L;
     @Column(name = "customerNumber", nullable = false) private Integer customerNumber;
 
     @Column(name = "checkNumber", nullable = false, length = 50) private String checkNumber;

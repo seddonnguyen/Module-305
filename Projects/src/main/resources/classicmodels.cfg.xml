@@ -31,9 +31,11 @@
         <mapping class="classicmodels.model.Orderdetail"/>
         <mapping class="classicmodels.model.OrderdetailId"/>
         <mapping class="classicmodels.model.Payment"/>
+        <mapping class="classicmodels.model.PaymentId"/>
         <mapping class="classicmodels.model.Product"/>
         <mapping class="classicmodels.model.Productline"/>
         <mapping class="classicmodels.model.Student"/>
         <mapping class="classicmodels.model.Studentcourse"/>
+        <mapping class="classicmodels.model.StudentcourseId"/>
     </session-factory>
 </hibernate-configuration>

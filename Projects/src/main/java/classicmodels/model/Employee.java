@@ -1,6 +1,7 @@
 package classicmodels.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -31,7 +32,9 @@ public class Employee {
 
     @Column(name = "jobTitle", nullable = false, length = 50) private String jobTitle;
 
-    @Column(name = "VacationHours") private Integer vacationHours;
+    @ColumnDefault("20")
+    @Column(name = "VacationHours")
+    private Integer vacationHours;
 
     @OneToMany(mappedBy = "salesRepEmployeeNumber") private Set<Customer> customers = new LinkedHashSet<>();
 

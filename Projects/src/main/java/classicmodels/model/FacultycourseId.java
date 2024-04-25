@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Embeddable
 public class FacultycourseId implements Serializable {
-    private static final long serialVersionUID = 7450461309984737510L;
+    private static final long serialVersionUID = 754268752326528865L;
     @Column(name = "facultyId") private Integer facultyId;
 
     @Column(name = "courseId") private Integer courseId;
