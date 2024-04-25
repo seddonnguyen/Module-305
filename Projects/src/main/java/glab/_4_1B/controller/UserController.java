@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 
 public class UserController {
     public static void main(String[] args) {
-        SessionFactory factory = new Configuration().configure("usersDb.cfg.xml").buildSessionFactory();
+        SessionFactory factory = new Configuration().configure("usersDb_4_1B.cfg.xml").buildSessionFactory();
         Session session = factory.openSession();
 
         try {
@@ -49,7 +49,6 @@ public class UserController {
 
 
     public static void findUser(Session session, int userId) {
-        Transaction transaction = session.beginTransaction();
         try {
             User user = session.get(User.class, userId);
             if (user != null) {
@@ -57,9 +56,7 @@ public class UserController {
             } else {
                 System.out.println("No user found with ID: " + userId);
             }
-            transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) { transaction.rollback(); }
             e.printStackTrace();
         }
     }

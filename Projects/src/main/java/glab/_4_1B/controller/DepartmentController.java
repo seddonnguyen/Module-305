@@ -12,7 +12,7 @@ public class DepartmentController {
     public static void main(String[] args) {
         // Perform CRUD operations on Department entity
 
-        try (SessionFactory factory = new Configuration().configure("usersDb.cfg.xml").buildSessionFactory();
+        try (SessionFactory factory = new Configuration().configure("usersDb_4_1B.cfg.xml").buildSessionFactory();
              Session session = factory.openSession()) {
 
             // Add Department
@@ -115,14 +115,10 @@ public class DepartmentController {
     }
 
     public static Department getDepartment(Session session, int id) {
-        Transaction transaction = session.beginTransaction();
         Department department = null;
-
         try {
             department = session.get(Department.class, id);
-            transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) { transaction.rollback(); }
             e.printStackTrace();
         }
         return department;
