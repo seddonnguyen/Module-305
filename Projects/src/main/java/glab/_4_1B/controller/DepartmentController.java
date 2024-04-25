@@ -12,7 +12,7 @@ public class DepartmentController {
     public static void main(String[] args) {
         // Perform CRUD operations on Department entity
 
-        try (SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        try (SessionFactory factory = new Configuration().configure("usersDb.cfg.xml").buildSessionFactory();
              Session session = factory.openSession()) {
 
             // Add Department

@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 
 public class UserController {
     public static void main(String[] args) {
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        SessionFactory factory = new Configuration().configure("usersDb.cfg.xml").buildSessionFactory();
         Session session = factory.openSession();
 
         try {
