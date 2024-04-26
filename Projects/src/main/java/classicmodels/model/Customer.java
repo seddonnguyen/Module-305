@@ -14,35 +14,48 @@ public class Customer {
     @Column(name = "customerNumber", nullable = false)
     private Integer id;
 
-    @Column(name = "customerName", nullable = false, length = 50) private String customerName;
+    @Column(name = "customerName", nullable = false, length = 50)
+    private String customerName;
 
-    @Column(name = "contactLastName", nullable = false, length = 50) private String contactLastName;
+    @Column(name = "contactLastName", nullable = false, length = 50)
+    private String contactLastName;
 
-    @Column(name = "contactFirstName", nullable = false, length = 50) private String contactFirstName;
+    @Column(name = "contactFirstName", nullable = false, length = 50)
+    private String contactFirstName;
 
-    @Column(name = "phone", nullable = false, length = 50) private String phone;
+    @Column(name = "phone", nullable = false, length = 50)
+    private String phone;
 
-    @Column(name = "addressLine1", nullable = false, length = 50) private String addressLine1;
+    @Column(name = "addressLine1", nullable = false, length = 50)
+    private String addressLine1;
 
-    @Column(name = "addressLine2", length = 50) private String addressLine2;
+    @Column(name = "addressLine2", length = 50)
+    private String addressLine2;
 
-    @Column(name = "city", nullable = false, length = 50) private String city;
+    @Column(name = "city", nullable = false, length = 50)
+    private String city;
 
-    @Column(name = "state", length = 50) private String state;
+    @Column(name = "state", length = 50)
+    private String state;
 
-    @Column(name = "postalCode", length = 15) private String postalCode;
+    @Column(name = "postalCode", length = 15)
+    private String postalCode;
 
-    @Column(name = "country", nullable = false, length = 50) private String country;
+    @Column(name = "country", nullable = false, length = 50)
+    private String country;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "salesRepEmployeeNumber")
     private Employee salesRepEmployeeNumber;
 
-    @Column(name = "creditLimit", precision = 10, scale = 2) private BigDecimal creditLimit;
+    @Column(name = "creditLimit", precision = 10, scale = 2)
+    private BigDecimal creditLimit;
 
-    @OneToMany(mappedBy = "customerNumber") private Set<Order> orders = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "customerNumber")
+    private Set<Order> orders = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "customerNumber") private Set<Payment> payments = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "customerNumber")
+    private Set<Payment> payments = new LinkedHashSet<>();
 
     public Integer getId() { return id; }
 
@@ -103,5 +116,4 @@ public class Customer {
     public Set<Payment> getPayments() { return payments; }
 
     public void setPayments(Set<Payment> payments) { this.payments = payments; }
-
 }

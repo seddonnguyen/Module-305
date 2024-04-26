@@ -8,16 +8,19 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "payments")
 public class Payment {
-    @EmbeddedId private PaymentId id;
+    @EmbeddedId
+    private PaymentId id;
 
     @MapsId("customerNumber")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "customerNumber", nullable = false)
     private Customer customerNumber;
 
-    @Column(name = "paymentDate", nullable = false) private LocalDate paymentDate;
+    @Column(name = "paymentDate", nullable = false)
+    private LocalDate paymentDate;
 
-    @Column(name = "amount", nullable = false, precision = 10, scale = 2) private BigDecimal amount;
+    @Column(name = "amount", nullable = false, precision = 10, scale = 2)
+    private BigDecimal amount;
 
     public PaymentId getId() { return id; }
 
@@ -34,5 +37,4 @@ public class Payment {
     public BigDecimal getAmount() { return amount; }
 
     public void setAmount(BigDecimal amount) { this.amount = amount; }
-
 }

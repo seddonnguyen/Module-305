@@ -14,13 +14,17 @@ public class Employee {
     @Column(name = "employeeNumber", nullable = false)
     private Integer id;
 
-    @Column(name = "lastName", nullable = false, length = 50) private String lastName;
+    @Column(name = "lastName", nullable = false, length = 50)
+    private String lastName;
 
-    @Column(name = "firstName", nullable = false, length = 50) private String firstName;
+    @Column(name = "firstName", nullable = false, length = 50)
+    private String firstName;
 
-    @Column(name = "extension", nullable = false, length = 10) private String extension;
+    @Column(name = "extension", nullable = false, length = 10)
+    private String extension;
 
-    @Column(name = "email", nullable = false, length = 100) private String email;
+    @Column(name = "email", nullable = false, length = 100)
+    private String email;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "officeCode", nullable = false)
@@ -30,15 +34,18 @@ public class Employee {
     @JoinColumn(name = "reportsTo")
     private Employee reportsTo;
 
-    @Column(name = "jobTitle", nullable = false, length = 50) private String jobTitle;
+    @Column(name = "jobTitle", nullable = false, length = 50)
+    private String jobTitle;
 
     @ColumnDefault("20")
     @Column(name = "VacationHours")
     private Integer vacationHours;
 
-    @OneToMany(mappedBy = "salesRepEmployeeNumber") private Set<Customer> customers = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "salesRepEmployeeNumber")
+    private Set<Customer> customers = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "reportsTo") private Set<Employee> employees = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "reportsTo")
+    private Set<Employee> employees = new LinkedHashSet<>();
 
     public Integer getId() { return id; }
 
@@ -83,5 +90,4 @@ public class Employee {
     public Set<Employee> getEmployees() { return employees; }
 
     public void setEmployees(Set<Employee> employees) { this.employees = employees; }
-
 }

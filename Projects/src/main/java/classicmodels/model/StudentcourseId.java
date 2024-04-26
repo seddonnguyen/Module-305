@@ -10,9 +10,11 @@ import java.util.Objects;
 @Embeddable
 public class StudentcourseId implements Serializable {
     private static final long serialVersionUID = -81292629363625500L;
-    @Column(name = "studentId") private Integer studentId;
+    @Column(name = "studentId")
+    private Integer studentId;
 
-    @Column(name = "courseId") private Integer courseId;
+    @Column(name = "courseId")
+    private Integer courseId;
 
     public Integer getStudentId() { return studentId; }
 
@@ -34,5 +36,4 @@ public class StudentcourseId implements Serializable {
         StudentcourseId entity = (StudentcourseId) o;
         return Objects.equals(this.studentId, entity.studentId) && Objects.equals(this.courseId, entity.courseId);
     }
-
 }

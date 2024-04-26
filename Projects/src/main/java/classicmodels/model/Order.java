@@ -14,13 +14,17 @@ public class Order {
     @Column(name = "orderNumber", nullable = false)
     private Integer id;
 
-    @Column(name = "orderDate", nullable = false) private LocalDate orderDate;
+    @Column(name = "orderDate", nullable = false)
+    private LocalDate orderDate;
 
-    @Column(name = "requiredDate", nullable = false) private LocalDate requiredDate;
+    @Column(name = "requiredDate", nullable = false)
+    private LocalDate requiredDate;
 
-    @Column(name = "shippedDate") private LocalDate shippedDate;
+    @Column(name = "shippedDate")
+    private LocalDate shippedDate;
 
-    @Column(name = "status", nullable = false, length = 15) private String status;
+    @Column(name = "status", nullable = false, length = 15)
+    private String status;
 
     @Lob
     @Column(name = "comments")
@@ -30,7 +34,8 @@ public class Order {
     @JoinColumn(name = "customerNumber", nullable = false)
     private Customer customerNumber;
 
-    @OneToMany(mappedBy = "orderNumber") private Set<Orderdetail> orderdetails = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "orderNumber")
+    private Set<Orderdetail> orderdetails = new LinkedHashSet<>();
 
     public Integer getId() { return id; }
 
@@ -63,5 +68,4 @@ public class Order {
     public Set<Orderdetail> getOrderdetails() { return orderdetails; }
 
     public void setOrderdetails(Set<Orderdetail> orderdetails) { this.orderdetails = orderdetails; }
-
 }

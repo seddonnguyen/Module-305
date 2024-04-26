@@ -10,9 +10,11 @@ import java.util.Objects;
 @Embeddable
 public class OrderdetailId implements Serializable {
     private static final long serialVersionUID = 636827862403901664L;
-    @Column(name = "orderNumber", nullable = false) private Integer orderNumber;
+    @Column(name = "orderNumber", nullable = false)
+    private Integer orderNumber;
 
-    @Column(name = "productCode", nullable = false, length = 15) private String productCode;
+    @Column(name = "productCode", nullable = false, length = 15)
+    private String productCode;
 
     public Integer getOrderNumber() { return orderNumber; }
 
@@ -34,5 +36,4 @@ public class OrderdetailId implements Serializable {
         OrderdetailId entity = (OrderdetailId) o;
         return Objects.equals(this.orderNumber, entity.orderNumber) && Objects.equals(this.productCode, entity.productCode);
     }
-
 }

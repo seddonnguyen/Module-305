@@ -12,15 +12,18 @@ public class Productline {
     @Column(name = "productLine", nullable = false, length = 50)
     private String productLine;
 
-    @Column(name = "textDescription", length = 4000) private String textDescription;
+    @Column(name = "textDescription", length = 4000)
+    private String textDescription;
 
     @Lob
     @Column(name = "htmlDescription")
     private String htmlDescription;
 
-    @Column(name = "image") private byte[] image;
+    @Column(name = "image")
+    private byte[] image;
 
-    @OneToMany(mappedBy = "productLine") private Set<Product> products = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "productLine")
+    private Set<Product> products = new LinkedHashSet<>();
 
     public String getProductLine() { return productLine; }
 
@@ -41,5 +44,4 @@ public class Productline {
     public Set<Product> getProducts() { return products; }
 
     public void setProducts(Set<Product> products) { this.products = products; }
-
 }

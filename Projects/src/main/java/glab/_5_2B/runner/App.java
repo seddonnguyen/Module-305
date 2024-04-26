@@ -10,7 +10,6 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
 
-
 public class App {
     public static void main(String[] args) {
 
@@ -22,24 +21,30 @@ public class App {
 
         SessionFactory factory = new Configuration().configure("teacher_db_5_2B.cfg.xml").buildSessionFactory();
         Session session = factory.openSession();
-
         Transaction t = session.beginTransaction();
-
 
         Address a1 = new Address("27th street", "NYC", "NY", 11103);
         Address a2 = new Address("28th street", "Buffalo", "NY", 15803);
+        Address a3 = new Address();
+        a3.setStreet("29th street");
+        a3.setCity("Lahore");
+        a3.setState("Punjab");
+        a3.setZipCode(54000);
 
         Teacher t1 = new Teacher("1000", "MHaseeb");
         Teacher t2 = new Teacher("2220", "Shahparan");
+        Teacher t3 = new Teacher("3000", "James");
         t1.setAddress(a1);
         t2.setAddress(a2);
-
+        t3.setAddress(a3);
 
         session.persist(a1);
         session.persist(a2);
+        session.persist(a3);
 
         session.persist(t1);
         session.persist(t2);
+        session.persist(t3);
 
         Department dept1 = new Department("IT");
         Department dept2 = new Department("HR");
@@ -47,11 +52,11 @@ public class App {
         ArrayList<Teacher> teachersList = new ArrayList<>();
         teachersList.add(t1);
         teachersList.add(t2);
+        teachersList.add(t3);
 
         dept1.setTeacherList(teachersList);
         session.persist(dept1);
         session.persist(dept2);
-
 
         t.commit();
     }

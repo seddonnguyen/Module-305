@@ -1,6 +1,7 @@
-package glab._5_2B.model;
+package glab._5_3B.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,9 +11,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "department", schema = "teacher_db")
-@Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Department implements Serializable {
+
     @Serial
     private static final long serialVersionUID = 1L;
 

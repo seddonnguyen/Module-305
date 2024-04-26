@@ -13,13 +13,17 @@ public class Department {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "name", length = 30) private String name;
+    @Column(name = "name", length = 30)
+    private String name;
 
-    @OneToMany(mappedBy = "dept") private Set<Course> courses = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "dept")
+    private Set<Course> courses = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "deptid") private Set<Faculty> faculties = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "deptid")
+    private Set<Faculty> faculties = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "major") private Set<Student> students = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "major")
+    private Set<Student> students = new LinkedHashSet<>();
 
     public Integer getId() { return id; }
 
@@ -40,5 +44,4 @@ public class Department {
     public Set<Student> getStudents() { return students; }
 
     public void setStudents(Set<Student> students) { this.students = students; }
-
 }

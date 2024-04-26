@@ -7,7 +7,8 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "orderdetails", indexes = {@Index(name = "productCode", columnList = "productCode")})
 public class Orderdetail {
-    @EmbeddedId private OrderdetailId id;
+    @EmbeddedId
+    private OrderdetailId id;
 
     @MapsId("orderNumber")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -19,11 +20,14 @@ public class Orderdetail {
     @JoinColumn(name = "productCode", nullable = false)
     private Product productCode;
 
-    @Column(name = "quantityOrdered", nullable = false) private Integer quantityOrdered;
+    @Column(name = "quantityOrdered", nullable = false)
+    private Integer quantityOrdered;
 
-    @Column(name = "priceEach", nullable = false, precision = 10, scale = 2) private BigDecimal priceEach;
+    @Column(name = "priceEach", nullable = false, precision = 10, scale = 2)
+    private BigDecimal priceEach;
 
-    @Column(name = "orderLineNumber", nullable = false) private Short orderLineNumber;
+    @Column(name = "orderLineNumber", nullable = false)
+    private Short orderLineNumber;
 
     public OrderdetailId getId() { return id; }
 
@@ -48,5 +52,4 @@ public class Orderdetail {
     public Short getOrderLineNumber() { return orderLineNumber; }
 
     public void setOrderLineNumber(Short orderLineNumber) { this.orderLineNumber = orderLineNumber; }
-
 }

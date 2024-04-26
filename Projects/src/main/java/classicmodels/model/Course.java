@@ -13,7 +13,8 @@ public class Course {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "name", length = 50) private String name;
+    @Column(name = "name", length = 50)
+    private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "deptId")
@@ -23,7 +24,8 @@ public class Course {
     @JoinTable(name = "facultycourse", joinColumns = @JoinColumn(name = "courseId"), inverseJoinColumns = @JoinColumn(name = "facultyId"))
     private Set<Faculty> faculties = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "course") private Set<Studentcourse> studentcourses = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "course")
+    private Set<Studentcourse> studentcourses = new LinkedHashSet<>();
 
     public Integer getId() { return id; }
 
@@ -44,5 +46,4 @@ public class Course {
     public Set<Studentcourse> getStudentcourses() { return studentcourses; }
 
     public void setStudentcourses(Set<Studentcourse> studentcourses) { this.studentcourses = studentcourses; }
-
 }

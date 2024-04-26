@@ -10,11 +10,14 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "studentcourse")
 public class Studentcourse {
-    @EmbeddedId private StudentcourseId id;
+    @EmbeddedId
+    private StudentcourseId id;
 
-    @Column(name = "progress") private Integer progress;
+    @Column(name = "progress")
+    private Integer progress;
 
-    @Column(name = "startDate") private LocalDate startDate;
+    @Column(name = "startDate")
+    private LocalDate startDate;
 
     public StudentcourseId getId() { return id; }
 
@@ -27,5 +30,4 @@ public class Studentcourse {
     public LocalDate getStartDate() { return startDate; }
 
     public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
-
 }
